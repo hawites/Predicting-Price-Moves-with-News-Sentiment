@@ -1,0 +1,6 @@
+"venv/" 
+data/
+*.csv
+*.xlsx
+".ipynb_checkpoints/" 
+.vscode/
