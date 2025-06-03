@@ -7,5 +7,3 @@ textblob
 jupyter
 missingno
 wordcloud
--f wheels
-talib @ file://./wheels/ta_lib-0.6.3-cp313-cp313-win_amd64.whl
