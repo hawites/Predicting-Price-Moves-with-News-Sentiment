@@ -43,14 +43,25 @@ class EDAAnalyzer:
         plt.ylabel("Frequency")
         plt.show()
 
-    def generate_wordcloud(self, n_words=50):
-        print(f"\n🔍 Top {n_words} Words in Headlines:")
-        all_words = ' '.join(self.df['cleaned_headline'].astype(str))
-        wordcloud = WordCloud(width=800, height=400, max_words=n_words, background_color='white').generate(all_words)
+    def generate_wordcloud(self, n_words=50, sample_size=100000):
+        print(f"\n🔍 Generating WordCloud from {sample_size} sampled headlines...")
+
+        # Sample a subset of the data to avoid crashing
+        if self.df.shape[0] > sample_size:
+            subset = self.df['cleaned_headline'].sample(sample_size, random_state=42)
+        else:
+            subset = self.df['cleaned_headline']
+
+        text = ' '.join(subset.astype(str))
+
+        # Generate WordCloud
+      
+        wordcloud = WordCloud(width=800, height=400, max_words=n_words, background_color='white').generate(text)
+
         plt.figure(figsize=(12, 6))
         plt.imshow(wordcloud, interpolation='bilinear')
         plt.axis('off')
-        plt.title(f"Top {n_words} Words in Headlines")
+        plt.title(f"Top {n_words} Words in Sampled Headlines")
         plt.show()
 
     def keyword_frequencies(self, top_n=20):
