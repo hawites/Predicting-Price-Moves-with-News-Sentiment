@@ -4,3 +4,5 @@ data/
 *.xlsx
 ".ipynb_checkpoints/" 
 .vscode/
+__pycache__/
+*.pyc
