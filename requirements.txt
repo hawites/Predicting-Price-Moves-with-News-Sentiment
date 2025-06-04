@@ -7,3 +7,4 @@ textblob
 jupyter
 missingno
 wordcloud
+nltk
